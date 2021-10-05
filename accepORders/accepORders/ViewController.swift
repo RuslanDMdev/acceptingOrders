@@ -136,10 +136,11 @@ class ViewController: UIViewController {
        
 
         
-//        let rootVC = SecondViewController()
-//        rootVC.modalPresentationStyle = .fullScreen
-//        present(rootVC, animated: true)
-//
+        let rootVC = OrderViewController()
+        let nacVC = UINavigationController(rootViewController: rootVC)
+        nacVC.modalPresentationStyle = .fullScreen
+        present(nacVC, animated: true)
+
         
     }
     
