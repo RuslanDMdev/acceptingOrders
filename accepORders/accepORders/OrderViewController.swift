@@ -37,7 +37,7 @@ class OrderViewController: UIViewController {
 
         view.backgroundColor = .white
     
-        navigationItem.leftBarButtonItem  = UIBarButtonItem(title: "Назад", style: .plain, target: self, action: #selector(openNextView))
+        navigationItem.leftBarButtonItem  = UIBarButtonItem(title: "Назад", style: .plain, target: self, action: #selector(buttonBack))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Чеки", style: .plain, target: self, action: #selector(openNextView))
         navigationItem.title = "Cafe"
         
@@ -52,7 +52,7 @@ class OrderViewController: UIViewController {
             maker.width.equalTo(300)
         }
         
-        fioField.text = "Количество гостей"
+        fioField.text = "Введите фио"
         fioField.snp.makeConstraints { make in
             make.top.equalTo(labelFIO).inset(30)
             make.centerX.equalToSuperview()
@@ -76,7 +76,7 @@ class OrderViewController: UIViewController {
             maker.width.equalTo(300)
         }
         
-        guestField.text = "Номер стола"
+        guestField.text = "Количество гостей"
         guestField.snp.makeConstraints { make in
             make.top.equalTo(labelCountOfGuest).inset(30)
             make.centerX.equalToSuperview()
@@ -100,7 +100,7 @@ class OrderViewController: UIViewController {
             maker.width.equalTo(300)
         }
         
-        tableNumField.text = "Введите фио"
+        tableNumField.text = "Номер стола"
         tableNumField.snp.makeConstraints { make in
             make.top.equalTo(labelTableNumer).inset(30)
             make.centerX.equalToSuperview()
@@ -132,14 +132,17 @@ class OrderViewController: UIViewController {
     }
     
     @objc func openNextView(){
-       
-        let rootVC = ViewController()
-        rootVC.modalPresentationStyle = .fullScreen
-        present(rootVC, animated: true)
         
-        
-
-        
+        let rootVC = CheksViewController()
+        let nacVC = UINavigationController(rootViewController: rootVC)
+        nacVC.modalPresentationStyle = .fullScreen
+        present(nacVC, animated: true)
     }
 
+    @objc func buttonBack(){
+        let rootVC = ViewController()
+        let nacVC = UINavigationController(rootViewController: rootVC)
+        nacVC.modalPresentationStyle = .fullScreen
+        present(nacVC, animated: true)
+    }
 }
